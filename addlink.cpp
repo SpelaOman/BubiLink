@@ -539,6 +539,7 @@ void AddLink::create_url() {
     new_url.replace("&&", "&");
     new_url.replace("##", "#");
     new_url.replace(" ", "-");
+    new_url.replace("?&", "?");
     new_url.toLower();
 
     if ( new_url.right(1) == "#" || new_url.right(1) == "?" ) {
