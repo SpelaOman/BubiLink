@@ -34,7 +34,7 @@
            </size>
           </property>
           <property name="text">
-           <string>Kampanija</string>
+           <string>Kampanja</string>
           </property>
          </widget>
         </item>
@@ -63,7 +63,7 @@
         <item row="1" column="3">
          <widget class="QPushButton" name="new_campaign">
           <property name="text">
-           <string>Nova Kampanija</string>
+           <string>Nova Kampanja</string>
           </property>
          </widget>
         </item>
@@ -146,7 +146,7 @@
            <x>0</x>
            <y>0</y>
            <width>501</width>
-           <height>398</height>
+           <height>396</height>
           </rect>
          </property>
         </widget>
@@ -193,9 +193,26 @@
      <x>0</x>
      <y>0</y>
      <width>779</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuNastavitve">
+    <property name="title">
+     <string>Nastavitve</string>
+    </property>
+    <addaction name="actionDodaj_Profil"/>
+    <addaction name="actionDodaj_Kampanjo"/>
+    <addaction name="actionDodaj_Povezavo"/>
+   </widget>
+   <widget class="QMenu" name="menuPodatki">
+    <property name="title">
+     <string>Podatki</string>
+    </property>
+    <addaction name="actionIzvoz_baze"/>
+    <addaction name="actionUvoz_baze"/>
+   </widget>
+   <addaction name="menuNastavitve"/>
+   <addaction name="menuPodatki"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -229,6 +246,31 @@
   <action name="actionMedij_Medium">
    <property name="text">
     <string>Medij (Medium)</string>
+   </property>
+  </action>
+  <action name="actionDodaj_Profil">
+   <property name="text">
+    <string>Dodaj Profil</string>
+   </property>
+  </action>
+  <action name="actionDodaj_Kampanjo">
+   <property name="text">
+    <string>Dodaj Kampanjo</string>
+   </property>
+  </action>
+  <action name="actionDodaj_Povezavo">
+   <property name="text">
+    <string>Dodaj Povezavo</string>
+   </property>
+  </action>
+  <action name="actionIzvoz_baze">
+   <property name="text">
+    <string>Izvoz baze</string>
+   </property>
+  </action>
+  <action name="actionUvoz_baze">
+   <property name="text">
+    <string>Uvoz baze</string>
    </property>
   </action>
  </widget>

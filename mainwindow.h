@@ -16,6 +16,13 @@ public:
     ~MainWindow();
     
 private slots:
+    // Menu
+    void on_actionDodaj_Profil_triggered();
+    void on_actionDodaj_Kampanjo_triggered();
+    void on_actionDodaj_Povezavo_triggered();
+    void on_actionUvoz_baze_triggered();
+    void on_actionIzvoz_baze_triggered();
+
     // Buttons
     void on_new_profile_clicked();
     void on_new_campaign_clicked();

@@ -7,6 +7,8 @@
 
 #include <QtSql>
 #include <QMessageBox>
+#include <QFile>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -40,6 +42,66 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// Menu
+void MainWindow::on_actionDodaj_Profil_triggered() {
+
+    on_new_profile_clicked();
+
+}
+
+void MainWindow::on_actionDodaj_Kampanjo_triggered() {
+
+    on_new_campaign_clicked();
+
+}
+
+void MainWindow::on_actionDodaj_Povezavo_triggered() {
+
+    on_btn_add_link_clicked();
+
+}
+
+void MainWindow::on_actionUvoz_baze_triggered() {
+
+    // nastavi pot do baze, ki je arhivirana
+    QString baza_stara = QFileDialog::getOpenFileName(this,
+                                                            "Izberite datoteko za uvoz v program",
+                                                            QDir::homePath(), "Baza (*.bac.bz)");
+
+    // nastavi pot do baze, kot jo uporablja aplikacija
+    QString app_path = QApplication::applicationDirPath();
+    QString baza_nova = app_path + "/base.bz";
+
+    // zamenjaj trenutno bazo z novo
+    if ( baza_stara != "" ) {
+        QFile::remove(baza_nova);
+        QFile::copy(baza_stara, baza_nova);
+
+        fill_profiles();
+
+    }
+
+}
+
+void MainWindow::on_actionIzvoz_baze_triggered() {
+
+    // nastavi pot do baze
+    QString mapa_za_shranjevanje = QFileDialog::getExistingDirectory(this,
+                                                                     "Izberite mapo za shranjevanje dokumentov",
+                                                                     QDir::homePath(), QFileDialog::ShowDirsOnly);
+    QString baza_nova = mapa_za_shranjevanje + "/base-" + QDate::currentDate().toString("yyyy-MM-dd") + ".bac.bz";
+
+    // nastavi pot do baze, kot jo arhiviramo
+    QString app_path = QApplication::applicationDirPath();
+    QString baza_stara = app_path + "/base.bz";
+
+    // zamenjaj trenutno bazo z novo
+    if ( mapa_za_shranjevanje != "" ) {
+        QFile::copy(baza_stara, baza_nova);
+    }
+
 }
 
 // Actions
