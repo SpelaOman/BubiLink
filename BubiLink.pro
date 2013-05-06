@@ -4,30 +4,27 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT		+= core gui
+QT		+= widgets
+QT		+= sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+TARGET	= BubiLink
+TEMPLATE= app
 
-TARGET = BubiLink
-TEMPLATE = app
+SOURCES	+= main.cpp\
+		mainwindow.cpp \
+		addlink.cpp \
+		global.cpp \
+		add_profile.cpp \
+		add_campaign.cpp
 
+HEADERS	+= mainwindow.h \
+		addlink.h \
+		global.h \
+		add_profile.h \
+		add_campaign.h
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    addlink.cpp \
-    global.cpp \
-    add_profile.cpp \
-    add_campaign.cpp
-
-HEADERS  += mainwindow.h \
-    addlink.h \
-    global.h \
-    add_profile.h \
-    add_campaign.h
-
-FORMS    += mainwindow.ui \
-    addlink.ui \
-    add_profile.ui \
-    add_campaign.ui
-
-QT += sql
+FORMS	+= mainwindow.ui \
+		addlink.ui \
+		add_profile.ui \
+		add_campaign.ui
